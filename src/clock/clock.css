@@ -1,9 +1,15 @@
+:root {
+    --color-black: black;
+}
+
 .clock {
     width: 200px;
     height: 200px;
-    border: 5px solid black;
+    border: 5px solid var(--color-black);
     border-radius: 50%;
     position: relative;
+    margin: 0px auto;
+    margin-top: 50px;
 }
 
 
@@ -62,7 +68,7 @@
     --rotation: 330deg;
 }
 
-.clock .hand {
+.clock .arrow {
     --rotation: 0;
     position: absolute;
     bottom: 50%;
@@ -73,55 +79,29 @@
     transform-origin: bottom;
     z-index: 10;
     transform: translateX(-50%) rotate(calc(var(--rotation) * 1deg));
-  }
+}
 
-  
-.clock .hand.second {
+
+.clock .arrow.second {
     width: 3px;
-    height: 45%;
-    background-color: red;
-  }
-  
-  .clock .hand.minute {
-    width: 7px;
     height: 40%;
-    background-color: black;
-  }
-  
-  .clock .hand.hour {
-    width: 10px;
-    height: 35%;
-    background-color: black;
-  }
-
-/* .center{
-    width: 13px;
-    height: 13px;
-    background-color: black;
-    border-radius: 50%;
-    margin: 0px auto;
-    margin-top: 27%;
+    background-color: red;
 }
 
-.time-arrow{
-    width: 55px;
-    height: 4px;
-    background: black;
-    margin-left: 46px;
-    margin-top: -8px;
+.clock .arrow.minute {
+    width: 6px;
+    height: 40%;
+    background-color: var(--color-black);
 }
 
-.minute-arrow{
-    width: 4px;
-    height: 71px;
-    background: black;
-    margin: 0 auto;
-    margin-top: -75px;
+.clock .arrow.hour {
+    width: 6px;
+    height: 30%;
+    background-color: var(--color-black);
 }
 
-.second-arrow{
-    width: 2px;
-    height: 71px;
-    background: black;
-    margin: 0 auto;
-} */
+
+.times {
+    margin-top: 62%;
+    opacity: 0.5;
+}

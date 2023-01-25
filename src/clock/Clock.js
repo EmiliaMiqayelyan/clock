@@ -1,28 +1,41 @@
 import "./clock.css";
+import React, { useEffect, useState } from "react";
 
 function Clock() {
+  let times = new Date().toLocaleTimeString();
+  const [time, setTime] = useState(times);
 
-  // setInterval(setClock, 1000)
+  useEffect(() => {
+    setInterval(() => {
+      const secondHand = document.getElementById("second");
+      const minuteHand = document.getElementById("minute");
+      const hourHand = document.getElementById("hour");
 
-const hourHand = document.querySelector('[data-hour-hand]')
-const minuteHand = document.querySelector('[data-minute-hand]')
-const secondHand = document.querySelector('[data-second-hand]')
+      setClock(hourHand, secondHand, minuteHand);
+    }, 1000);
+  }, []);
 
-function setClock() {
-  const currentDate = new Date()
-  const secondsRatio = currentDate.getSeconds() / 60
-  const minutesRatio = (secondsRatio + currentDate.getMinutes()) / 60
-  const hoursRatio = (minutesRatio + currentDate.getHours()) / 12
-  setRotation(secondHand, secondsRatio)
-  setRotation(minuteHand, minutesRatio)
-  setRotation(hourHand, hoursRatio)
-}
+  function setClock(hourHand, secondHand, minuteHand) {
+    const currentDate = new Date();
+    const secondsRatio = currentDate.getSeconds() / 60;
+    const minutesRatio = (secondsRatio + currentDate.getMinutes()) / 60;
+    const hoursRatio = (minutesRatio + currentDate.getHours()) / 12;
 
-function setRotation(element, rotationRatio) {
-  element.style.setProperty('--rotation', rotationRatio * 360)
-}
+    setRotation(secondHand, secondsRatio);
+    setRotation(minuteHand, minutesRatio);
+    setRotation(hourHand, hoursRatio);
+  }
 
-setClock()
+  function setRotation(element, rotationRatio) {
+    element.style.setProperty("--rotation", rotationRatio * 360);
+  }
+
+  const update = () => {
+    times = new Date().toLocaleTimeString();
+    setTime(times);
+  };
+
+  setInterval(update);
 
   return (
     <div className="clock">
@@ -40,13 +53,12 @@ setClock()
         <div className="number ten">10</div>
         <div className="number eleven">11</div>
       </div>
-      {/* <div className="center"></div>
-      <div className="time-arrow"></div>
-      <div className="minute-arrow"></div>
-      <div className="second-arrow"></div> */}
-      <div class="hand hour" data-hour-hand></div>
-      <div class="hand minute" data-minute-hand></div>
-      <div class="hand second" data-second-hand></div>
+      <div>
+        <div className="times">{time}</div>
+        <div className="arrow hour" id="hour"></div>
+        <div className="arrow minute" id="minute"></div>
+        <div className="arrow second" id="second"></div>
+      </div>
     </div>
   );
 }
