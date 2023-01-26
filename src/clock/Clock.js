@@ -2,6 +2,7 @@ import "./clock.css";
 import React, { useEffect, useState } from "react";
 
 function Clock() {
+    
   let times = new Date().toLocaleTimeString();
   const [time, setTime] = useState(times);
 
@@ -55,6 +56,7 @@ function Clock() {
       </div>
       <div>
         <div className="times">{time}</div>
+        <div className="center"></div>
         <div className="arrow hour" id="hour"></div>
         <div className="arrow minute" id="minute"></div>
         <div className="arrow second" id="second"></div>

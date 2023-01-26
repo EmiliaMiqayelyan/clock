@@ -73,7 +73,6 @@
     position: absolute;
     bottom: 50%;
     left: 50%;
-    border: 1px solid white;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
     transform-origin: bottom;
@@ -81,11 +80,10 @@
     transform: translateX(-50%) rotate(calc(var(--rotation) * 1deg));
 }
 
-
 .clock .arrow.second {
     width: 3px;
     height: 40%;
-    background-color: red;
+    background-color: var(--color-black);
 }
 
 .clock .arrow.minute {
@@ -100,6 +98,14 @@
     background-color: var(--color-black);
 }
 
+.center{
+    width: 20px;
+    height: 20px;
+    background: var(--color-black);
+    border-radius: 50%;
+    margin: 0px auto;
+    margin-top: -29%;
+}
 
 .times {
     margin-top: 62%;
