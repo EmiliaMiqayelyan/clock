@@ -2,7 +2,6 @@ import "./clock.css";
 import React, { useEffect, useState } from "react";
 
 function Clock() {
-    
   let times = new Date().toLocaleTimeString();
   const [time, setTime] = useState(times);
 
